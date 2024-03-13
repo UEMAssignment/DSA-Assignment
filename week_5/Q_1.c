@@ -22,16 +22,16 @@ int main() {
     //         scanf("%d", &matrix [i][j]);  
     //     }
     matrix [0][1] = 1;
-    matrix [0][3] = 6;
-    matrix [0][4] = 7;
+    matrix [0][3] = 1;
+    matrix [0][4] = 1;
     matrix [1][2] = 1;
-    matrix [1][3] = 4;
-    matrix [2][3] = 3;
+    matrix [1][3] = 1;
+    matrix [2][3] = 1;
     matrix [2][5] = 1;
-    matrix [3][4] = 3;
-    matrix [3][5] = 2;
-    matrix [4][5] = 2;
-    
+    matrix [3][4] = 1;
+    matrix [3][5] = 1;
+    matrix [4][5] = 1;
+
     printf("The Matrix is: \n");
     for (int k = 0; k < vertex; k++)
         printf("\t%c", str[k]);
