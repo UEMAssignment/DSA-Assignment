@@ -49,7 +49,25 @@ BST* search(BST* root, int x){
     }
 }
 
-BST* deleteNode(BST* root, int )
+BST* deleteNode(BST* root, int value){
+    if(root == NULL){
+        return root;
+    }
+
+    if(value < root->key){
+        root->left = deleteNode(root, value);
+        return root;
+    }else if(value > root->key){
+        root->right = deleteNode(root, value);
+        return root;
+    }
+    // }else{
+    //     if(root->left == NULL && root->right == NULL){
+    //         free(root);
+    //     }
+    // }
+    // return root;
+}
 
 
 int main(){
@@ -58,7 +76,7 @@ int main(){
     int choice, value;
 
     do{
-        printf("\nMenu: \n---------------------\n1. Insert a node\n2. Search a node\n3. DisplayInOrder\n4. Exit\n");
+        printf("\nMenu: \n---------------------\n1. Insert a node\n2. Search a node\n3. DisplayInOrder\n4. Delete a node\n5. Exit\n");
         printf("Enter your choice : ");
         scanf("%d", &choice);
 
@@ -84,11 +102,17 @@ int main(){
             case 3: InOrderTraversal(root);
                 break;
 
-            case 4: exit(0);
+            case 4: printf("Enter the key to delete : ");
+                    scanf("%d", &value);
+                    root = deleteNode(root, value);
+                    printf("%d deleted from the BST.\n", value);
+                    InOrderTraversal(root);
+                break;
+            case 5: exit(0);
 
             default : printf("Invalid choice!!!");
         }
 
-    }while(choice != 4);
+    }while(choice != 5);
     return 0;
 }
