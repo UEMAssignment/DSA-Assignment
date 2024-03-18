@@ -85,30 +85,6 @@ bool detectCycle(struct Graph* graph) {
     return false;
 }
 
-void identifyDegreeVertices(struct Graph* graph) {
-    int numVertices = graph->numVertices;
-    int oddDegree = 0;
-    int evenDegree = 0;
-
-    for (int i = 0; i < numVertices; ++i) {
-        int degree = 0;
-        struct Node* current = graph->adjLists[i];
-        while (current) {
-            ++degree;
-            current = current->next;
-        }
-
-        if (degree % 2 == 0)
-            evenDegree++;
-        else
-            oddDegree++;
-    }
-
-    printf("Number of odd-degree vertices: %d\n", oddDegree);
-    printf("Number of even-degree vertices: %d\n", evenDegree);
-}
-
-
 int main() {
     int numVertices, numEdges;
     printf("Enter the number of vertices: ");
@@ -133,6 +109,6 @@ int main() {
         printf("The graph does not contain a cycle.\n");
 
     return 0;
-    identifyDegreeVertices(graph);
+   
 
 }
