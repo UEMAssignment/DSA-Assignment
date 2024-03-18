@@ -38,31 +38,46 @@ void addEdge(struct Graph* graph, int src, int dest) {
 }
 
 // DFS traversal
-void DFS(struct Graph* graph, int vertex) {
+void DFS(struct Graph* graph, int vertex, char vertexes[]) {
     graph->visited[vertex] = true;
-    printf("%d ", vertex);
+    printf("%c\t", vertexes[vertex]);
 
     struct Node* adjList = graph->adjLists[vertex];
     while (adjList != NULL) {
         int connectedVertex = adjList->vertex;
         if (!graph->visited[connectedVertex]) {
-            DFS(graph, connectedVertex);
+            DFS(graph, connectedVertex, vertexes);
         }
         adjList = adjList->next;
     }
 }
 
 int main() {
+    char vertexes[] = {'P', 'Q', 'R', 'S', 'T', 'U'};
+    //                  0,   1,   2,   3,   4,   5
     struct Graph* graph = createGraph(6);
     addEdge(graph, 0, 1);
-    addEdge(graph, 0, 2);
+    addEdge(graph, 0, 4);
+    addEdge(graph, 0, 3);
+
     addEdge(graph, 1, 2);
-    addEdge(graph, 2, 0);
+    addEdge(graph, 1, 3);
+
     addEdge(graph, 2, 3);
-    addEdge(graph, 3, 3);
+    addEdge(graph, 2, 5);
 
-    printf("DFS traversal starting from vertex 2:\n");
-    DFS(graph, 2);
+    addEdge(graph, 3, 4);
+    addEdge(graph, 3, 5);
 
+    addEdge(graph, 4, 5);
+
+    printf("Enter the starting vertex: ");
+    char vertex;
+    scanf("%c", &vertex);
+
+    printf("DFS traversal starting from vertex %c:\n", vertex);
+    DFS(graph, 0, vertexes);
+
+    printf("\n");
     return 0;
 }
