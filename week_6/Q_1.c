@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 #define MAX_VERTICES 100
 
@@ -74,6 +75,7 @@ int main() {
     printf("Enter the starting vertex: ");
     char vertex;
     scanf("%c", &vertex);
+    vertex = toupper(vertex);
     int i;
     for (i = 0; i < 6; i++) {
         if (vertexes[i] == vertex)
