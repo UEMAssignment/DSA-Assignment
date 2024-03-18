@@ -74,9 +74,16 @@ int main() {
     printf("Enter the starting vertex: ");
     char vertex;
     scanf("%c", &vertex);
+    int i;
+    for (i = 0; i < 6; i++) {
+        if (vertexes[i] == vertex)
+            break;
+        else 
+            printf("Given Vertex not found");
+    }
 
     printf("DFS traversal starting from vertex %c:\n", vertex);
-    DFS(graph, 0, vertexes);
+    DFS(graph, i, vertexes);
 
     printf("\n");
     return 0;
