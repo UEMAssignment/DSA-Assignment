@@ -42,4 +42,5 @@ int main() {
             printf("\t%d", matrix[i][j]);
         printf("\n");
     }
+    return 0;
 }
