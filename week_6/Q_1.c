@@ -77,11 +77,16 @@ int main() {
     scanf("%c", &vertex);
     vertex = toupper(vertex);
     int i;
+    int flag = 0;
     for (i = 0; i < 6; i++) {
-        if (vertexes[i] == vertex)
+        if (vertexes[i] == vertex){
+            flag = 1;
             break;
-        else 
-            printf("Given Vertex not found");
+        }
+    }
+    if (!flag) {
+        printf("Invalid vertex\n");
+        return 0;
     }
 
     printf("DFS traversal starting from vertex %c:\n", vertex);

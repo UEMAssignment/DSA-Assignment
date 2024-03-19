@@ -35,10 +35,10 @@ void addEdge(struct Graph* graph, int src, int dest) {
     graph->adjList[src] = newNode;
 
     // Add an edge from dest to src (for undirected graph)
-    newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->vertex = src;
-    newNode->next = graph->adjList[dest];
-    graph->adjList[dest] = newNode;
+    // newNode = (struct Node*)malloc(sizeof(struct Node));
+    // newNode->vertex = src;
+    // newNode->next = graph->adjList[dest];
+    // graph->adjList[dest] = newNode;
 }
 
 // Function to perform BFS traversal
@@ -94,13 +94,16 @@ int main() {
     scanf("%c", &vertex);
     vertex = toupper(vertex);
     int i;
+    int flag = 0;
     for (i = 0; i < 6; i++) {
-        if (vertices[i] == vertex)
+        if (vertices[i] == vertex){
+            flag = 1;
             break;
-        else {
-            printf("Given Vertex not found");
-            return 0;
-        }
+        } 
+    }
+    if (!flag) {
+        printf("Invalid vertex\n");
+        return 0;
     }
 
     printf("BFS traversal starting from vertex %c:\n", vertex);
